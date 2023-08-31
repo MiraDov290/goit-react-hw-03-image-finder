@@ -1,10 +1,7 @@
 import { Component } from 'react';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { Overlay, ModalWindow } from './Modal.styled';
 
-// Об'єкт модального вікна в DOM-дереві
-const modalRoot = document.querySelector('#modal-root');
 
 // Класовий компонент Modal
 class Modal extends Component {
@@ -37,14 +34,19 @@ class Modal extends Component {
     
 render() {
     const { largeImageURL, tags } = this.props; //Отримання значення пропсів
-    return createPortal(
-      <Overlay onClick={this.handleBackdropClick}>
-        <ModalWindow>
-          <img src={largeImageURL} alt={tags} />
-        </ModalWindow>
-      </Overlay>,
-      modalRoot,
-    );
+
+    return (
+<div className="overlay">
+            <div className="modal">
+    <Overlay onClick={this.handleBackdropClick}>
+    <ModalWindow>
+    <img src={largeImageURL} alt={tags} />
+    </ModalWindow>
+    </Overlay>
+  </div>
+</div>
+            
+    )
   }
 }
 
