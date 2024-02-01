@@ -1,5 +1,4 @@
 import { Component } from 'react';
-// import * as API from '../../services/PixabayApi';
 import * as API from '../services/PixabayApi';
 import SearchBar from '../SearchBar/SearchBar';
 import ImageGallery from '../ImageGallery/ImageGallery';
